@@ -51,36 +51,7 @@
         }
 
       })
-  const editor = await   ClassicEditor
-      .create( document.querySelector( '#editor' ) )
 
-      const form = document.querySelector("#sendemail");
-      console.log("form bef", form)
-      form.addEventListener("submit", (e) => {
-          e.preventDefault();
-        
-          console.log("#form")
-           
-          const data = Object.fromEntries(new FormData(form));
-          const html = editor.getData()
-          data.body = html
-          data.to = data.email
-      console.log(data)
-          fetch("/sendemail", {
-              method: "POST",
-              body: JSON.stringify(data),
-              //  headers
-              headers: {
-                  "Content-Type": "application/json",
-              }
-    
-          }).then(r => r.json()).then((data) => {
-          //  ...
-  if(data.status === 201) {
-    alert("Email sent successfully")
-  }
-        })
-  })
       setInterval(() => {   
 if(selected_email !== null) return;
         runFetch(true)
@@ -151,13 +122,43 @@ if(selected_email !== null) return;
         </div>`
       
       }
+     
     window.clearSelectedEmail = () => {
       selected_email = null;
       document.querySelector("#emails").innerHTML = `<span class="loading loading-spinner loading-lg"></span>`
 
     }  
     }
+    const editor = await   ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+
+    const form = document.querySelector("#sendemail");
+    console.log("form bef", form)
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
       
+        console.log("#form")
+         
+        const data = Object.fromEntries(new FormData(form));
+        const html = editor.getData()
+        data.body = html
+        data.to = data.email
+    console.log(data)
+        fetch("/sendemail", {
+            method: "POST",
+            body: JSON.stringify(data),
+            //  headers
+            headers: {
+                "Content-Type": "application/json",
+            }
+  
+        }).then(r => r.json()).then((data) => {
+        //  ...
+if(data.status === 201) {
+  alert("Email sent successfully")
+}
+      })
+})  
 }
 
   })();
