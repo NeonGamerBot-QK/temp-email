@@ -1,0 +1,42 @@
+
+<script src="javascript/index.js"></script>
+
+<div class=" min-h-screen bg-base-100 min-w-screen">
+    <div class="text-center">
+      <div >
+        <h1 class="text-5xl font-bold mb-5">Temp Email</h1>
+        <input id="email" class="p-5 input input-ghost w-full max-w-xs border" disabled readonly></input>
+        <button onclick="navigator.clipboard.writeText(document.getElementById('email').value)" class="btn btn-ghost">copy</button>
+        <div  id="emails" class="m-10 p-2 bg-base-200"><span class="loading loading-spinner loading-lg"></span></div>
+        <br />
+
+        <!-- b -->
+      
+            <h1 class=" font-bold text-2xl">Send Email</h1>
+            <form id="sendemail">
+          
+             <div class="flex flex-col w-96 text-center">
+               </div>
+               <div class="form-control w-full max-w-xs">
+                <label class="label">
+                  <span class="label-text">Email</span>
+                </label>
+                <input type="email" placeholder="johndoe"  name="email" class="input input-bordered w-full max-w-xs"  required />
+              </div>
+               <div class="form-control w-full max-w-xs">
+                 <label class="label">
+                   <span class="label-text">Subject</span>
+                 </label>
+                 <input type="text" placeholder="Type here"  name="subject" class="input input-bordered w-full max-w-xs"  required/>
+               </div>
+               <textarea class="textarea textarea-primary" placeholder="Example body here" id="editor" required>
+
+               </textarea>
+               <input class="btn btn-neutral m-5 ml-10" type="submit">
+               </div>
+            </form>
+         </div>
+        <!-- e -->
+      </div>
+    </div>
+  </div>

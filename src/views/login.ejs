@@ -1,0 +1,34 @@
+<div class="relative flex flex-col items-center justify-center h-screen overflow-hidden">
+    <div class="w-full p-6 bg-base border-t-4 border-gray-600 rounded-md shadow-md border-top lg:max-w-lg">
+        <h1 class="text-3xl font-semibold text-center text-base-700">Login</h1>
+        <form class="space-y-4" id="form" action="/login" method="post">
+            <div  id="error" class="m-2 space-y-2 bg-base-300 p-4 border hidden">
+                <p class="text-error font-bold text-center text-lg"> Invalid Password </p>
+            </div> 
+            <div>
+                <label class="label">
+                    <span class="text-base label-text">Password</span>
+                </label>
+                <input type="password" name="password" autocomplete="current-password" placeholder="Enter Password"
+                    class="w-full input input-bordered" />
+            </div>
+            <a id="btn" class="text-xs text-gray-600 hover:underline hover:text-blue-600">Forget Password?</a>
+            <div>
+                <button class="btn btn-block" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<dialog id="my_modal_2" class="modal">
+    <form method="dialog" class="modal-box" action="/e+5">
+      <h3 class="font-bold text-lg">Forgot Password!</h3>
+      <p class="py-4">You can find your password in the ENV variables under <span class="kbd">PASSWORD</span></p>
+    </form>
+    <form method="dialog" class="modal-backdrop" onsubmit="return false"  action="/e+5">
+        <button>close</button>
+    </form>
+  </dialog>
+<script src="javascript/login.js"></script>
